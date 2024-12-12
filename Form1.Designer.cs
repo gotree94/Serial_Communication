@@ -40,18 +40,22 @@
             this.button_send = new System.Windows.Forms.Button();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.label_status = new System.Windows.Forms.Label();
+            this.label_temp = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // comboBox_port
             // 
             this.comboBox_port.FormattingEnabled = true;
-            this.comboBox_port.Location = new System.Drawing.Point(16, 33);
+            this.comboBox_port.Location = new System.Drawing.Point(16, 49);
             this.comboBox_port.Name = "comboBox_port";
             this.comboBox_port.Size = new System.Drawing.Size(118, 20);
             this.comboBox_port.TabIndex = 0;
             // 
             // button_connect
             // 
+            this.button_connect.Location = new System.Drawing.Point(16, 86);
             this.button_connect.Name = "button_connect";
             this.button_connect.Size = new System.Drawing.Size(116, 44);
             this.button_connect.TabIndex = 1;
@@ -61,7 +65,7 @@
             // 
             // button_disconnect
             // 
-            this.button_disconnect.Location = new System.Drawing.Point(177, 60);
+            this.button_disconnect.Location = new System.Drawing.Point(157, 86);
             this.button_disconnect.Name = "button_disconnect";
             this.button_disconnect.Size = new System.Drawing.Size(116, 44);
             this.button_disconnect.TabIndex = 1;
@@ -71,42 +75,55 @@
             // 
             // textBox_send
             // 
+            this.textBox_send.Location = new System.Drawing.Point(20, 411);
             this.textBox_send.Name = "textBox_send";
+            this.textBox_send.Size = new System.Drawing.Size(159, 21);
             this.textBox_send.TabIndex = 2;
             // 
             // richTextBox_received
             // 
+            this.richTextBox_received.Location = new System.Drawing.Point(16, 277);
             this.richTextBox_received.Name = "richTextBox_received";
-            this.richTextBox_received.Size = new System.Drawing.Size(281, 201);
+            this.richTextBox_received.Size = new System.Drawing.Size(281, 86);
             this.richTextBox_received.TabIndex = 3;
             this.richTextBox_received.Text = "";
             // 
             // label_send
             // 
             this.label_send.AutoSize = true;
+            this.label_send.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label_send.ForeColor = System.Drawing.Color.White;
+            this.label_send.Location = new System.Drawing.Point(16, 379);
             this.label_send.Name = "label_send";
-            this.label_send.Size = new System.Drawing.Size(29, 12);
+            this.label_send.Size = new System.Drawing.Size(49, 19);
             this.label_send.TabIndex = 4;
             this.label_send.Text = "송신";
             // 
             // label_receive
             // 
             this.label_receive.AutoSize = true;
+            this.label_receive.Font = new System.Drawing.Font("굴림", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label_receive.ForeColor = System.Drawing.Color.Transparent;
+            this.label_receive.Location = new System.Drawing.Point(16, 245);
             this.label_receive.Name = "label_receive";
-            this.label_receive.Size = new System.Drawing.Size(29, 12);
+            this.label_receive.Size = new System.Drawing.Size(47, 19);
             this.label_receive.TabIndex = 4;
             this.label_receive.Text = "수신";
             // 
             // label_port
             // 
             this.label_port.AutoSize = true;
+            this.label_port.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label_port.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label_port.Location = new System.Drawing.Point(15, 20);
             this.label_port.Name = "label_port";
-            this.label_port.Size = new System.Drawing.Size(90, 12);
+            this.label_port.Size = new System.Drawing.Size(117, 16);
             this.label_port.TabIndex = 5;
             this.label_port.Text = "COM 포트 설정";
             // 
             // button_send
             // 
+            this.button_send.Location = new System.Drawing.Point(183, 396);
             this.button_send.Name = "button_send";
             this.button_send.Size = new System.Drawing.Size(114, 49);
             this.button_send.TabIndex = 6;
@@ -117,17 +134,49 @@
             // label_status
             // 
             this.label_status.AutoSize = true;
-            this.label_status.Location = new System.Drawing.Point(175, 28);
+            this.label_status.Font = new System.Drawing.Font("굴림", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label_status.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label_status.Location = new System.Drawing.Point(154, 49);
             this.label_status.Name = "label_status";
-            this.label_status.Size = new System.Drawing.Size(53, 12);
+            this.label_status.Size = new System.Drawing.Size(71, 16);
             this.label_status.TabIndex = 7;
             this.label_status.Text = "연결상태";
+            // 
+            // label_temp
+            // 
+            this.label_temp.AutoSize = true;
+            this.label_temp.Font = new System.Drawing.Font("Siemens Sans", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_temp.ForeColor = System.Drawing.Color.Red;
+            this.label_temp.Location = new System.Drawing.Point(144, 163);
+            this.label_temp.Name = "label_temp";
+            this.label_temp.Size = new System.Drawing.Size(161, 76);
+            this.label_temp.TabIndex = 8;
+            this.label_temp.Text = "00.0";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Lucida Console", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Transparent;
+            this.label2.Location = new System.Drawing.Point(19, 182);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(132, 37);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "PV : ";
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(314, 471);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ClientSize = new System.Drawing.Size(317, 471);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label_temp);
             this.Controls.Add(this.label_status);
             this.Controls.Add(this.button_send);
             this.Controls.Add(this.label_port);
@@ -159,6 +208,9 @@
         private System.Windows.Forms.Button button_send;
         private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.Label label_status;
+        private System.Windows.Forms.Label label_temp;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
