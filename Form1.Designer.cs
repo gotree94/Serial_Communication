@@ -52,7 +52,6 @@
             // 
             // button_connect
             // 
-            this.button_connect.Location = new System.Drawing.Point(16, 64);
             this.button_connect.Name = "button_connect";
             this.button_connect.Size = new System.Drawing.Size(116, 44);
             this.button_connect.TabIndex = 1;
@@ -72,14 +71,11 @@
             // 
             // textBox_send
             // 
-            this.textBox_send.Location = new System.Drawing.Point(16, 377);
             this.textBox_send.Name = "textBox_send";
-            this.textBox_send.Size = new System.Drawing.Size(281, 21);
             this.textBox_send.TabIndex = 2;
             // 
             // richTextBox_received
             // 
-            this.richTextBox_received.Location = new System.Drawing.Point(16, 142);
             this.richTextBox_received.Name = "richTextBox_received";
             this.richTextBox_received.Size = new System.Drawing.Size(281, 201);
             this.richTextBox_received.TabIndex = 3;
@@ -88,7 +84,6 @@
             // label_send
             // 
             this.label_send.AutoSize = true;
-            this.label_send.Location = new System.Drawing.Point(16, 354);
             this.label_send.Name = "label_send";
             this.label_send.Size = new System.Drawing.Size(29, 12);
             this.label_send.TabIndex = 4;
@@ -97,7 +92,6 @@
             // label_receive
             // 
             this.label_receive.AutoSize = true;
-            this.label_receive.Location = new System.Drawing.Point(16, 119);
             this.label_receive.Name = "label_receive";
             this.label_receive.Size = new System.Drawing.Size(29, 12);
             this.label_receive.TabIndex = 4;
@@ -106,7 +100,6 @@
             // label_port
             // 
             this.label_port.AutoSize = true;
-            this.label_port.Location = new System.Drawing.Point(16, 10);
             this.label_port.Name = "label_port";
             this.label_port.Size = new System.Drawing.Size(90, 12);
             this.label_port.TabIndex = 5;
@@ -114,7 +107,6 @@
             // 
             // button_send
             // 
-            this.button_send.Location = new System.Drawing.Point(16, 409);
             this.button_send.Name = "button_send";
             this.button_send.Size = new System.Drawing.Size(114, 49);
             this.button_send.TabIndex = 6;

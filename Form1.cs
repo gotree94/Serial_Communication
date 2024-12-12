@@ -53,59 +53,11 @@ namespace Serial_Communication
         private StringBuilder receivedDataBuffer = new StringBuilder();
 
         private void MySerialReceived(object s, EventArgs e)  //여기에서 수신 데이타를 사용자의 용도에 따라 처리한다.
-        {
-            //int ReceiveData = serialPort1.ReadByte();  //시리얼 버터에 수신된 데이타를 ReceiveData 읽어오기
-            //richTextBox_received.Text = richTextBox_received.Text + string.Format("{0:X2}", ReceiveData);  //int 형식을 string형식으로 변환하여 출력
-            try
-            {
-                // 수신된 데이터의 바이트 수 확인
-                int bytesToRead = serialPort1.BytesToRead;
-
-                // 수신된 데이터를 읽어 버퍼에 저장
-                byte[] buffer = new byte[bytesToRead];
-                serialPort1.Read(buffer, 0, bytesToRead);
-
-                // 버퍼에 저장된 데이터를 16진수 형식으로 변환하여 richTextBox에 출력
-                foreach (byte b in buffer)
-                {
-                    // 데이터를 16진수 형식으로 변환하여 텍스트 박스에 추가
-                    receivedDataBuffer.AppendFormat("{0:X2} ", b);
-                }
-
-                // 데이터를 화면에 출력 (UI 스레드에서 안전하게 처리)
-                richTextBox_received.Invoke(new Action(() =>
-                {
-                    richTextBox_received.Text = receivedDataBuffer.ToString();
-                    // 자동 스크롤 설정
-                    richTextBox_received.SelectionStart = richTextBox_received.Text.Length;
-                    richTextBox_received.ScrollToCaret();
-                }));
-            }
-            catch (Exception ex)
-            {
-                // 예외 처리
-                Console.WriteLine("Error: " + ex.Message);
-            }
+        {            
         }
 
         private void Button_send_Click(object sender, EventArgs e)  //보내기 버튼을 클릭하면
         {
-            // 초기 데이터 : 01,03,00,01,00,01
-            // CRC16 적용  : 01,03,00,01,00,01,D5,CA  -> 010300010001D5CA
-            // 수신 데이터 : 01,03,02,01,2C,B8,09, (01, 2C -> 300)
-            // 010300010001 -> 01,03,00,01,00,01,D5,CA
-            // Hex 문자열을 바이트 배열로 변환
-            //serialPort1.Write(textBox_send.Text);  //텍스트박스의 텍스트를 시리얼통신으로 송신
-            //serialPort1.Write(ToString.send_bytes);  //텍스트박스의 텍스트를 시리얼통신으로 송신
-            byte[] byteArray = new byte[textBox_send.Text.Length / 2];
-
-            for (int i = 0; i < textBox_send.Text.Length; i += 2)
-            {
-                // 2글자씩 묶어서 하나의 바이트로 변환
-                string hexByte = textBox_send.Text.Substring(i, 2);
-                byteArray[i / 2] = Convert.ToByte(hexByte, 16);
-            }
-            serialPort1.Write(byteArray, 0, byteArray.Length);
         }
 
         private void Button_disconnect_Click(object sender, EventArgs e)  //통신 연결끊기 버튼
