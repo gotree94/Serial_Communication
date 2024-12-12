@@ -5,6 +5,7 @@ Modbus-RTU 422 통신 관련
             // 수신 데이터 : 01,03,02,01,2C,B8,09, (01, 2C -> 300)
 
 //Version 1
+
 ![Serial_Communication](https://github.com/user-attachments/assets/193acc30-a830-45d1-944a-bbab705efa99)
 
 
